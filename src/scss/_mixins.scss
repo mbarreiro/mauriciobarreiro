@@ -1,0 +1,210 @@
+@use "mq";
+@use "variables";
+
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+@use "sass:string";
+
+//== base type style, used on page template
+@use "sass:map";
+
+@mixin font-size-line-height(
+  $font-size,
+  $line-height,
+  $breakpoint: false,
+  $size: false,
+  $columns: false
+) {
+  font-size: $font-size + px;
+  line-height: $line-height + px;
+
+  $content-text: " - " + $font-size + "/" + $line-height;
+  @if $breakpoint != false {
+    $content-text: $content-text + " - bp:" + $breakpoint;
+  }
+  @if $columns != false {
+    $content-text: $content-text + " - col:" + $columns;
+  }
+  @if $size != false {
+    $content-text: $content-text + " - size: " + $size;
+  }
+}
+
+@mixin ContainerBPProperties($values) {
+  $bps: map.keys(variables.$breakpoints);
+
+  @each $selector, $config in $values {
+    $all-container-properties: ();
+
+    @each $property, $all-values in $config {
+      @each $bp in $bps {
+        $bp-index: list.index($bps, $bp);
+
+        @if $bp-index <= list.length($all-values) {
+          $bp-config: list.nth($all-values, $bp-index);
+
+          @if $bp-config != "x" {
+            // Convert the bp_config to a map if it's a single value
+            $normalized-config: if(
+              meta.type-of($bp-config) == "map",
+              $bp-config,
+              (
+                0: $bp-config,
+              )
+            );
+
+            @each $container-key, $size-value in $normalized-config {
+              // Convert container key to width if it's a breakpoint name
+              $container-width: if(
+                map.has-key(variables.$container-widths, $container-key),
+                map.get(variables.$container-widths, $container-key),
+                $container-key
+              );
+
+              // Handle the case where no container key is provided
+              $container-width: if($container-key == null, 0, $container-width);
+
+              // Initialize nested maps if they don't exist
+              $bp-properties: map.get($all-container-properties, $bp) or ();
+              $container-properties: map.get($bp-properties, $container-width) or ();
+
+              // Add the new property
+              $container-properties: map.merge(
+                $container-properties,
+                (
+                  $property: $size-value,
+                )
+              );
+
+              // Update the nested maps
+              $bp-properties: map.set($bp-properties, $container-width, $container-properties);
+              $all-container-properties: map.set($all-container-properties, $bp, $bp-properties);
+            }
+          }
+        }
+      }
+    }
+
+    // Output the grouped properties
+    @each $bp, $bp-properties in $all-container-properties {
+      @include mq.mq($from: $bp) {
+        @each $container-width, $properties in $bp-properties {
+          @container (min-width: #{$container-width}) {
+            .#{$selector} {
+              @each $property, $value in $properties {
+                #{$property}: $value;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin BPProperty($property, $values...) {
+  $bps: map.keys(variables.$breakpoints);
+  $properties: (
+    columns: grid-template-columns,
+  );
+  @for $i from 1 through list.length($values) {
+    $bp: list.nth($bps, $i);
+    $value: list.nth($values, $i);
+    @if $value != "x" {
+      @include mq.mq($from: $bp) {
+        @if $property == columns {
+          #{map.get($properties, $property)}: repeat($value, 1fr);
+
+          // @if $value == 1 {
+          //   @include mq($until: small) {
+          //   > *:nth-child(1n)::after {
+          //     top: 100%;
+          //     height: 1px;
+          //     width: 100%;
+          //     left: 0;
+          //     right:auto;
+          //     }
+          //   }
+          // }
+          > *:nth-child(1n)::after {
+            display: block;
+          }
+          > *:last-child::after,
+          > *:nth-child(#{$value}n)::after {
+            display: none;
+          }
+        } @else {
+          & {
+            #{$property}: $value;
+          }
+        }
+      }
+    }
+  }
+}
+@function strip-special-chars($string) {
+  // First, convert the string to a string type if it isn't already
+  $string: meta.inspect($string);
+
+  // Define the pattern to keep (a-z, A-Z, 0-9)
+  $pattern: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  // Initialize the result
+  $result: "";
+
+  // Loop through each character in the string
+  @for $i from 1 through string.length($string) {
+    $char: string.slice($string, $i, $i);
+
+    // If the character is in our pattern, keep it
+    @if string.index($pattern, $char) {
+      $result: $result + $char;
+    }
+  }
+
+  @return $result;
+}
+
+$bg-types: ("light", "light2", "medium", "dark");
+
+@mixin BGProperties($colorMap, $selectors) {
+  $random: math.random(10000);
+
+  :root {
+    @each $name, $color in $colorMap {
+      --color-#{$name}-#{$random}: #{$color};
+    }
+  }
+
+  @each $bg-type in $bg-types {
+    $base-selector: if(
+      $bg-type == "light",
+      ":root, .background-type--#{$bg-type}",
+      ".background-type--#{$bg-type}"
+    );
+    @each $component, $props in $selectors {
+      $selector: strip-special-chars($component);
+      @each $property, $values in $props {
+        $color-index: list.index($bg-types, $bg-type);
+        @if list.length($values) >= $color-index {
+          #{$base-selector} {
+            --#{$selector}-#{$property}-#{$random}: var(
+              --color-#{list.nth($values, $color-index)}-#{$random}
+            );
+          }
+        }
+      }
+    }
+  }
+
+  // Apply the component-specific variables
+  @each $component, $props in $selectors {
+    $selector: strip-special-chars($component);
+    @each $property, $values in $props {
+      #{$component} {
+        #{$property}: var(--#{$selector}-#{$property}-#{$random});
+      }
+    }
+  }
+}

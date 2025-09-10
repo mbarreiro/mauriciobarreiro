@@ -1,0 +1,72 @@
+//== Axonius Color Palette
+$color-orange: #ff6112;
+$color-orange-dark: #cc4e0d;
+$color-orange-medium: #fca466;
+$color-orange-light: #ffc783;
+$color-orange-lightest: #ffddb5;
+$color-black: #000;
+$color-almost-black: #1a1a1a;
+$color-black-light: #262626;
+$color-grey-dark: #3d3c3c;
+$color-grey-medium: #a3a3a3;
+$color-grey-stroke: #d1d1d1;
+$color-grey-light: #f1efef;
+$color-white: #fff;
+$color-ultraviolet: #4b62f3;
+$color-ultraviolet-dark: #3848ae;
+$color-ultraviolet-medium: #93a1f8;
+$color-ultraviolet-light: #b7c0fa;
+$color-ultraviolet-lightest: #edeffe;
+$color-chartreuse: #e3ff7f;
+$color-accessibility-orange: #c24100;
+$color-orange-medium-dark: #ff671f;
+$color-grey-light-dark: #8a8a8a;
+
+// Deprecated Colors
+
+$font-color-dark: #4b4b4b;
+$font-color-white: #fff;
+$font-color-lime: #72bf00;
+
+// Normal mode
+// $color-foreground:      #202020;
+$color-background: #fff;
+
+// Dark mode
+// $color-foreground-dark: invert($color-foreground);
+// $color-background-dark: invert($color-background);
+// $color-link-dark:       invert($color-link);
+
+// Primary Colors
+$color-navy: #002b3f;
+$color-forest: #03755f;
+$color-lime: #72bf00;
+$color-grey: #bdccd4;
+$color-light-forest: #b6d8d1;
+
+// Secondary Colors
+$color-yellow: #fdcc37;
+
+// $color-orange: #f4881c;
+$color-alert-70: #d4041d;
+$color-alert-80: #a40013;
+$color-alert-90: #7a000e;
+$color-blue-70: #006ec2;
+
+// migrated from wordpress
+$color-dark-grey: #5e7177;
+$color-light-grey: #f5f5f5;
+$color-black: #000;
+$color-primary: $color-navy;
+$color-secondary: $color-lime;
+$navy: $color-navy;
+$light-green-bright: $color-lime;
+$dark-green: $color-forest;
+
+// Neutrals
+$color-cloud: #dfe6e8;
+$color-light-cloud: #f0f2f3;
+$color-white: #fff;
+$color-charcoal: #4b4b4b;
+$color-stone: #6e6e6e;
+$color-ash: #919191;

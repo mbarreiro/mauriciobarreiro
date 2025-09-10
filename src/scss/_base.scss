@@ -1,0 +1,143 @@
+@use "colorPalette";
+@use "variables";
+
+// == Base
+
+html,
+body {
+  margin: 0;
+  font-size: variables.$font-size;
+  font-family: variables.$font-family;
+  line-height: variables.$font-height;
+  color: colorPalette.$font-color-dark;
+  background: colorPalette.$color-background;
+}
+
+// Typography
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: variables.$font-family-headers;
+
+  &.head {
+    color: colorPalette.$color-navy;
+    margin: 1em 0;
+  }
+}
+
+a {
+  color: variables.$color-link;
+  font-family: variables.$font-primary-medium;
+}
+
+p {
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+}
+
+b,
+strong {
+  font-family: variables.$font-primary-medium;
+  font-weight: normal;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
+}
+
+.icon-arrow {
+  path {
+    fill: colorPalette.$color-lime;
+  }
+}
+
+.icon-link {
+  path {
+    fill: colorPalette.$color-lime;
+  }
+}
+
+.icon-pdf {
+  path {
+    fill: colorPalette.$color-lime;
+  }
+}
+
+.icon-video {
+  .video-circle {
+    fill: colorPalette.$color-lime;
+  }
+
+  .video-inner {
+    fill: colorPalette.$color-white;
+  }
+}
+
+.icon-back-to-top {
+  path {
+    fill: colorPalette.$color-lime;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.width-33 {
+  width: 33%;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+#cslp-tooltip {
+  transform: translateY(
+    10%
+  ) !important; //moving the button inside the container to click on it easily
+}
+
+.visual-builder__empty-block-parent {
+  position: relative;
+  z-index: 100;
+  background-color: colorPalette.$color-white;
+}
+
+.visual-builder__add-button {
+  svg {
+    max-width: none !important;
+  }
+}

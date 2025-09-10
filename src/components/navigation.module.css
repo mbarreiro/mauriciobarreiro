@@ -1,0 +1,25 @@
+/* navigation */
+.navigation {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--foreground);
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+  }
+  a {
+    font-weight: 600;
+    padding: 1rem 0;
+
+    span {
+      transition: border-bottom 0.2s;
+    }
+
+    &.active {
+      span {
+        border-bottom: 2px solid var(--foreground);
+      }
+    }
+  }
+}

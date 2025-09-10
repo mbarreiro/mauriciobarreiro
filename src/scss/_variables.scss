@@ -1,0 +1,128 @@
+@use "colorPalette";
+
+:root {
+  --font-custom1: var(--font-custom1-fallback), sans-serif, arial;
+  --font-custom2: var(--font-custom2-fallback), sans-serif, arial;
+}
+
+$breakpoints: (
+  xsmall: 320px,
+  small: 600px,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1280px,
+  xxlarge: 1600px,
+) !default;
+$container-widths: (
+  sm: 181px,
+  sm2: 201px,
+  sm3: 273px,
+  md: 270px,
+  md2: 295px,
+  lg: 373px,
+  lg2: 451px,
+  xl: 570px,
+  xl2: 620px,
+  xxl: 1180px,
+) !default;
+$mq-media-type: screen;
+$mq-breakpoints: $breakpoints;
+$max-width: 2000px;
+$max-width-inner: 1820px;
+
+//== Font
+
+// $font-family:           "Neue-Haas","Gothic A1",sans-serif,Arial,sans-serif;
+$font-family: var(--font-custom2);
+$font-size: 16px;
+$font-height: 1.5;
+$font-family-headers: var(--font-custom2);
+
+// $font-family-headers:   "Neue-Haas-medium";
+
+//== Axonius Color Palette
+
+colorPalette.$color-orange: #ff6112;
+colorPalette.$color-orange-dark: #cc4e0d;
+colorPalette.$color-orange-medium: #fca466;
+colorPalette.$color-orange-light: #ffc783;
+colorPalette.$color-orange-lightest: #ffddb5;
+colorPalette.$color-black: #000;
+colorPalette.$color-almost-black: #1a1a1a;
+colorPalette.$color-black-light: #262626;
+colorPalette.$color-grey-dark: #3d3c3c;
+colorPalette.$color-grey-medium: #a3a3a3;
+colorPalette.$color-grey-stroke: #d1d1d1;
+colorPalette.$color-grey-light: #f1efef;
+colorPalette.$color-white: #fff;
+colorPalette.$color-ultraviolet: #4b62f3;
+colorPalette.$color-ultraviolet-dark: #3848ae;
+colorPalette.$color-ultraviolet-medium: #93a1f8;
+colorPalette.$color-ultraviolet-light: #b7c0fa;
+colorPalette.$color-ultraviolet-lightest: #edeffe;
+colorPalette.$color-chartreuse: #e3ff7f;
+
+// Deprecated Colors
+
+colorPalette.$font-color-dark: #4b4b4b;
+colorPalette.$font-color-white: #fff;
+colorPalette.$font-color-lime: #72bf00;
+
+// Normal mode
+// $color-foreground:      #202020;
+colorPalette.$color-background: #fff;
+
+// Dark mode
+// $color-foreground-dark: invert($color-foreground);
+// $color-background-dark: invert($color-background);
+// $color-link-dark:       invert($color-link);
+
+// Primary Colors
+colorPalette.$color-navy: #002b3f;
+colorPalette.$color-forest: #03755f;
+colorPalette.$color-lime: #72bf00;
+colorPalette.$color-grey: #bdccd4;
+colorPalette.$color-light-forest: #b6d8d1;
+
+// Secondary Colors
+colorPalette.$color-yellow: #fdcc37;
+
+// $color-orange: #f4881c;
+colorPalette.$color-alert-70: #d4041d;
+colorPalette.$color-alert-80: #a40013;
+colorPalette.$color-alert-90: #7a000e;
+colorPalette.$color-blue-70: #006ec2;
+
+// migrated from wordpress
+colorPalette.$color-dark-grey: #5e7177;
+colorPalette.$color-light-grey: #f5f5f5;
+colorPalette.$color-black: #000;
+
+// $font-family-headers:   "Neue-Haas-medium";
+
+// Spacing
+$container-spacing-full: 120px;
+$container-spacing-half: 60px;
+$container-spacing-quarter: 40px;
+$container-spacing-full-mobile: 80px;
+$container-spacing-half-mobile: 40px;
+$container-spacing-quarter-mobile: 20px;
+$container-inner-spacing: 120px;
+$container-inner-spacing-mobile: 80px;
+$color-link: colorPalette.$color-ultraviolet;
+$color-coveo-text: colorPalette.$color-charcoal;
+$font-primary-light: var(--font-custom2);
+$font-primary-medium: var(--font-custom2);
+
+// $font-primary-medium: "Neue-Haas-Medium";
+$font-primary-roman: var(--font-custom2);
+
+// $font-primary-roman: "Neue-Haas-Roman";
+
+$card-borer-radius: 10px;
+
+// hover
+$color-hover: rgb(114 191 0);
+
+//slider
+$color-background-slider: #e5e9eb;
