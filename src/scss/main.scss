@@ -5,7 +5,6 @@
 // @use "_base";
 @use "_mq";
 
-
 // Components in Alphabetical Order
 @use "components/navigation";
 // @use "components/font-size";
@@ -26,7 +25,7 @@
 // @use "components/header-dropdown";
 // @use "components/header";
 // @use "components/header-mobile-queries";
-// @use "components/hero";
+@use "components/hero";
 // @use "components/heroPromos";
 // @use "components/image";
 // @use "components/contentBlock";

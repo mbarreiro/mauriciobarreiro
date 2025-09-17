@@ -6,13 +6,12 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  display: flex;
   align-items: center;
   justify-items: center;
-  padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
+  flex-direction: column;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,6 +23,9 @@
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
   }
+  .logo {
+    filter: invert();
+  }
 }
 
 .main {
@@ -33,26 +35,12 @@
   grid-row-start: 2;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
 .main li:not(:last-of-type) {
   margin-bottom: 8px;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+.sectionFullBleed {
+  padding: 0;
 }
 
 .ctas {
@@ -66,10 +54,7 @@
   height: 48px;
   padding: 0 20px;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -90,7 +75,6 @@ a.secondary {
   min-width: 158px;
 }
 
-
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
@@ -110,14 +94,6 @@ a.secondary {
     padding-bottom: 80px;
   }
 
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
   .ctas {
     flex-direction: column;
   }
@@ -130,11 +106,5 @@ a.secondary {
 
   a.secondary {
     min-width: auto;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default async function Contact() {
+export default function Contact() {
 
   return (
     <>

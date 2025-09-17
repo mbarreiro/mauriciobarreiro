@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default async function About() {
+export default function About() {
 
   return (
     <>

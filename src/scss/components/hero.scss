@@ -1,0 +1,31 @@
+.hero {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: anchor-center;
+  column-gap: var(--column-gap, 20px);
+
+  &__content {
+    flex: 1 1 50%;
+  }
+
+  &__media-container {
+    flex: 1 1 50%;
+    line-height: 0%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// has a background color
+.hero--with-bg {
+  padding: 50px;
+}
+
+.hero--with-bg-image {
+  background-size: cover;
+  background-position: center;
+}

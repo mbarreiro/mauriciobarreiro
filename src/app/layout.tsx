@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navigation from "@/components/Navigation";
-import '@/scss/main.scss';
+import "@/scss/main.scss";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,16 +41,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} someother-class`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} someother-class`}
+      >
         <header>
-          <h1>Mauricio Barreiro</h1>
+          <span>Mauricio Barreiro</span>
         </header>
 
         <Navigation />
 
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
 
         <footer>
           <p>© 2025 Mauricio Barreiro</p>
