@@ -9,6 +9,10 @@
     flex: 1 1 50%;
   }
 
+  &__title {
+    text-wrap: balance;
+  }
+
   &__media-container {
     flex: 1 1 50%;
     line-height: 0%;
