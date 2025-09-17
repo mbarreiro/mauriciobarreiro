@@ -4,7 +4,6 @@ import styles from "./page.module.css";
 import Section from "@/components/Section";
 import Hero, { GreyscaleColor } from "@/components/Hero";
 import { ImageModel } from "./models/image.model";
-import { File } from "./models/common.model";
 
 export default function Home() {
   return (
