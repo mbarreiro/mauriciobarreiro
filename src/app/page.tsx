@@ -2,6 +2,7 @@ import Image from "next/image";
 import SimpleSlider from "@/components/SimpleSlider";
 import styles from "./page.module.css";
 import Section from "@/components/Section";
+import Grid, { GridItem } from "@/components/Grid";
 import Hero, { GreyscaleColor } from "@/components/Hero";
 import { ImageModel } from "./models/image.model";
 
@@ -31,10 +32,48 @@ export default function Home() {
         />
       </Section>
       <Section classes="custom-section-class">
-        <p>This is the homepage of my portfolio website.</p>
         <SimpleSlider />
       </Section>
       <section>Featured projects</section>
+      <Section classes="custom-section-class--grid-container">
+        <Grid
+          classes="custom-grid-class"
+          gridColumns={3}
+          hasGridColumnGap={true}
+          gridItems={[
+            {
+              component: "Image",
+              props: {
+                alt: "Sample Image",
+                title: "Sample Image",
+                width: 640,
+                height: 480,
+                src: "https://fpoimg.com/640x480?text=Sample Image&bg_color=cccccc&text_color=8F8F8F",
+              },
+            } as GridItem,
+            {
+              component: "Image",
+              props: {
+                alt: "Sample Image 2",
+                title: "Sample Image 2",
+                width: 640,
+                height: 480,
+                src: "https://fpoimg.com/640x480?text=Sample Image 2&bg_color=cccccc&text_color=8F8F8F",
+              },
+            } as GridItem,
+            {
+              component: "Image",
+              props: {
+                alt: "Sample Image 3",
+                title: "Sample Image 3",
+                width: 640,
+                height: 480,
+                src: "https://fpoimg.com/640x480?text=Sample Image 3&bg_color=cccccc&text_color=8F8F8F",
+              },
+            } as GridItem,
+          ]}
+        />
+      </Section>
       <section>
         <Image
           className={styles.logo}
@@ -45,6 +84,7 @@ export default function Home() {
           priority
         />
       </section>
+      <section>[Quotes Placeholder]</section>
       <section>[Quotes Placeholder]</section>
       <section>[Skills Placeholder]</section>
       <section>

@@ -9,7 +9,6 @@
   display: flex;
   align-items: center;
   justify-items: center;
-  gap: 64px;
   font-family: var(--font-geist-sans);
   flex-direction: column;
 }
