@@ -1,0 +1,26 @@
+.section {
+}
+.section {
+  &--spacing-small {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  &--spacing-medium {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  &--spacing-large {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  &--layout-row {
+    flex-direction: row;
+  }
+
+  &--layout-column {
+    flex-direction: column;
+  }
+}

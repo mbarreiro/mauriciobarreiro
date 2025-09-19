@@ -5,6 +5,7 @@ import Section from "@/components/Section";
 import Grid, { GridItem } from "@/components/Grid";
 import Hero, { GreyscaleColor } from "@/components/Hero";
 import { ImageModel } from "./models/image.model";
+import type { CardProps } from "@/components/Card";
 
 export default function Home() {
   return (
@@ -34,6 +35,135 @@ export default function Home() {
       <Section classes="custom-section-class">
         <SimpleSlider />
       </Section>
+      <Section classes="custom-section-class--grid-container" spacing="large">
+        {/* TODO: Add title text for Services section */}
+        <div className="title-text title-text--centered">
+          <h2 className="title-text__header">Services Grid</h2>
+        </div>
+
+        <Grid
+          classes="custom-grid-class"
+          gridColumns={3}
+          hasGridColumnGap={true}
+          hasGridRowGap={true}
+          gridColumnGap="small"
+          gridRowGap="small"
+          gridItems={[
+            {
+              component: "Card",
+              props: {
+                eyebrow: "Card Eyebrow",
+                description: "Card with image on top and centered text.",
+                image: {
+                  alt: "Sample Image",
+                  title: "Sample Image",
+                  width: 400,
+                  height: 300,
+                  src: "/icons/tool-container.svg",
+                },
+                title: "The Claim Title",
+                variant: "claim",
+              } as CardProps,
+            } as unknown as GridItem,
+            {
+              component: "Card",
+              props: {
+                eyebrow: "Card Eyebrow",
+                description: "Card description goes here.",
+                image: {
+                  alt: "Sample Image",
+                  title: "Sample Image",
+                  width: 400,
+                  height: 300,
+                  src: "/icons/tool-divider.svg",
+                },
+                title: "Card Title",
+                variant: "claim",
+              } as CardProps,
+            } as unknown as GridItem,
+            {
+              component: "Card",
+              props: {
+                eyebrow: "Card Eyebrow",
+                description: "Card description goes here.",
+                image: {
+                  alt: "Sample Image",
+                  title: "Sample Image",
+                  width: 400,
+                  height: 300,
+                  src: "/icons/tool-container.svg",
+                },
+                title: "Card Title",
+                variant: "claim",
+              } as CardProps,
+            } as unknown as GridItem,
+          ]}
+        />
+      </Section>
+      <Section classes="custom-section-class--grid-container" spacing="large">
+        {/* TODO: Add title text for Services section */}
+        <div className="title-text title-text--centered">
+          <h2 className="title-text__header">Grid</h2>
+        </div>
+
+        <Grid
+          classes="custom-grid-class"
+          gridColumns={3}
+          hasGridColumnGap={true}
+          hasGridRowGap={true}
+          gridColumnGap="small"
+          gridRowGap="small"
+          gridItems={[
+            {
+              component: "Card",
+              props: {
+                eyebrow: "Card Eyebrow",
+                description: "Card with image on top and centered text.",
+                image: {
+                  alt: "Sample Image",
+                  title: "Sample Image",
+                  width: 400,
+                  height: 300,
+                  src: "https://fpoimg.com/400x300?text=Card+Image&bg_color=cccccc&text_color=8F8F8F",
+                },
+                title: "Card Title",
+              } as CardProps,
+            } as unknown as GridItem,
+            {
+              component: "Card",
+              props: {
+                // layout: "image-top",
+                eyebrow: "Card Eyebrow",
+                description: "Card description goes here.",
+                image: {
+                  alt: "Sample Image",
+                  title: "Sample Image",
+                  width: 400,
+                  height: 300,
+                  src: "https://fpoimg.com/400x300?text=Card+Image&bg_color=cccccc&text_color=8F8F8F",
+                },
+                title: "Card Title",
+              } as CardProps,
+            } as unknown as GridItem,
+            {
+              component: "Card",
+              props: {
+                layout: "image-bottom",
+                eyebrow: "Card Eyebrow",
+                title: "Card Title",
+                description: "Card description goes here.",
+                image: {
+                  alt: "Sample Image",
+                  title: "Sample Image",
+                  width: 400,
+                  height: 300,
+                  src: "https://fpoimg.com/400x300?text=Card+Image&bg_color=cccccc&text_color=8F8F8F",
+                },
+              } as CardProps,
+            } as unknown as GridItem,
+          ]}
+        />
+      </Section>
       <section>Featured projects</section>
       <Section classes="custom-section-class--grid-container">
         <Grid
@@ -50,7 +180,7 @@ export default function Home() {
                 height: 480,
                 src: "https://fpoimg.com/640x480?text=Sample Image&bg_color=cccccc&text_color=8F8F8F",
               },
-            } as GridItem,
+            } as unknown as GridItem,
             {
               component: "Image",
               props: {
@@ -60,7 +190,7 @@ export default function Home() {
                 height: 480,
                 src: "https://fpoimg.com/640x480?text=Sample Image 2&bg_color=cccccc&text_color=8F8F8F",
               },
-            } as GridItem,
+            } as unknown as GridItem,
             {
               component: "Image",
               props: {
@@ -70,7 +200,7 @@ export default function Home() {
                 height: 480,
                 src: "https://fpoimg.com/640x480?text=Sample Image 3&bg_color=cccccc&text_color=8F8F8F",
               },
-            } as GridItem,
+            } as unknown as GridItem,
           ]}
         />
       </Section>

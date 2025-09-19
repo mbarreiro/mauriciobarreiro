@@ -5,7 +5,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function SimpleSlider() {
+import clsx from "clsx";
+
+type SliderSimpleProps = {
+  classes?: string;
+};
+
+function SliderSimple({ classes }: SliderSimpleProps) {
   const settings = {
     dots: true,
     infinite: true,
@@ -13,8 +19,12 @@ function SimpleSlider() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+  const classList = clsx("slider-simple slider-container", {
+    classes: classes,
+  });
   return (
-    <div className="slider-container">
+    <div className={classList}>
       <Slider {...settings}>
         <div>
           <Image
@@ -75,4 +85,4 @@ function SimpleSlider() {
   );
 }
 
-export default SimpleSlider;
+export default SliderSimple;

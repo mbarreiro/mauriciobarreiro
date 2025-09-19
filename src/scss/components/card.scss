@@ -1,0 +1,81 @@
+.card {
+  display: flex;
+  column-gap: var(--column-gap, 20px);
+  flex-direction: column;
+
+  &__content {
+    margin-bottom: 1rem;
+  }
+
+  &__eyebrow {
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title {
+    display: block;
+    font-size: 24px;
+    text-wrap: balance;
+    margin-bottom: 0.5rem;
+  }
+
+  &__media-container {
+    margin-bottom: 1rem;
+    line-height: 0%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// has a background color
+.card--with-bg {
+  padding: 50px;
+}
+
+.card--with-bg-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.card--text-align-center {
+  .card__content {
+    text-align: center;
+    text-wrap: balance;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.card--variant-claim {
+  padding-left: 8%;
+  padding-right: 8%;
+  .card__title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .card__content {
+    text-align: center;
+    text-wrap: balance;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .card__media-container {
+    height: 150px;
+    width: auto;
+    margin-bottom: 2rem;
+    img,
+    svg {
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}

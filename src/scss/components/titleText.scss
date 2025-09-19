@@ -1,0 +1,14 @@
+.title-text {
+  margin-bottom: 6rem;
+
+  &__header {
+    font-size: 5rem;
+    line-height: 100%;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-wrap: balance;
+  }
+}
+.title-text--centered {
+  text-align: center;
+}
